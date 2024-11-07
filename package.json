@@ -26,11 +26,11 @@
         "@tailwindcss/typography": "^0.5.10",
         "@vitejs/plugin-vue": "^5.0.0",
         "autoprefixer": "^10.4.13",
-        "eslint": "^8.39.0",
+        "eslint": "^9.14.0",
         "eslint-plugin-vue": "^9.11.0",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.4",
         "vite": "^5.0.0",
-        "vitest": "^1.0.0"
+        "vitest": "^2.1.4"
     }
 }
