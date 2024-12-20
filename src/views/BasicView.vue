@@ -30,11 +30,15 @@ onMounted(() => {
             v-if="!pokemonStore.loading && pokemonStore.pokemon"
             class="p-2"
         >
+            
             <TheSpriteViewer
                 :sprites="pokemonStore.pokemon.sprites"
                 :gender-rate="pokemonStore.pokemon.gender_rate"
             />
             <TheFlavorTextViewer :flavor-text-entries="pokemonStore.pokemon.flavor_text_entries" />
+            <div>
+                hello 
+            </div>
         </div>
         <div v-else>
             <p>Loading...</p>

@@ -4,6 +4,7 @@ import { SparklesIcon } from "@heroicons/vue/24/solid";
 import TheImageVersionSelector from "@/components/ImageNavigator/TheImageVersionSelector.vue";
 import FemaleIcon from "@/components/Icons/FemaleIcon.vue";
 import MaleIcon from "@/components/Icons/MaleIcon.vue";
+import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps({
   sprites: {
@@ -140,8 +141,9 @@ const sortedSprites = computed(() => {
 </script>
 
 <template>
+  <div class="grid grid-cols-2">
     <div class="md:min-w-[450px] md:max-w-[450px] md:mx-auto">
-        <div class="relative w-full">
+        <div class="relative w-full bg-red-500">
             <img
                 class="rounded shadow w-full max-h-[450px]"
                 :src="selectedImage"
@@ -158,7 +160,7 @@ const sortedSprites = computed(() => {
             </div>
         </div>
 
-        <div class="mt-1 flex w-full overflow-y-scroll snap-x gap-1">
+        <div class="mt-1 flex w-full overflow-y-scroll snap-x gap-1 bg-blue-500">
             <template
                 v-for="(sprite, key) in selectedVersion?.sprites"
                 :key="sprite"
@@ -191,4 +193,42 @@ const sortedSprites = computed(() => {
             </template>
         </div>
     </div>
+
+    <div>
+      <div class="border-2 border-slate-500 rounded-md">
+        <div class="flex gap-2 bg-red-600 text-xl pl-1">
+          <div>010</div>
+          <div>name</div>
+        </div>
+
+        <div class="text-right pr-1">poekmon description</div>
+      </div>
+
+      <div class="flex gap-3">
+        <div class="flex flex-col items-center w-16 h-16 border-2 border-slate-500 rounded-md">
+          <div class="w-full size-2 bg-red-500"></div>
+          <ChevronDownIcon class="size-8"/>
+        </div>
+
+        <div class="grow bg-red-500">
+          <div class="flex gap-1">
+            <div class="px-2 border-2 border-slate-500 rounded-md uppercase">normal</div>
+            <div class="px-2 border-2 border-slate-500 rounded-md uppercase">flying</div>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="flex items-center justify-evenly">
+              <span>ht</span>
+              <span>1'00''</span>
+            </div>
+            <div>
+              <span>wt</span>
+              <span>4.0 lbs.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> 
 </template>
