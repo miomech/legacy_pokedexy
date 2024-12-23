@@ -19,7 +19,6 @@ const pokedex = usePokedexStore();
         <p class="font-bungee text-sm py-1 px-2 text-slate-500">
             {{ regionPokemon.pokemon.length }} Pokémon in {{ pokedex.active_region.name }}
         </p>
-        
         <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-2 py-1 px-2">
             <div
                 v-for="pokemon in regionPokemon.pokemon"

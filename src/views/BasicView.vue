@@ -32,8 +32,15 @@ onMounted(() => {
         >
             
             <TheSpriteViewer
+                :test="pokemonStore.pokemon"
                 :sprites="pokemonStore.pokemon.sprites"
                 :gender-rate="pokemonStore.pokemon.gender_rate"
+                :genera="pokemonStore.pokemon.genera"
+                :pokedex-numbers="pokemonStore.pokemon.pokedex_numbers"
+                :types="pokemonStore.pokemon.types"
+                :name="pokemonStore.pokemon.name"
+                :height="pokemonStore.pokemon.height"
+                :weight="pokemonStore.pokemon.weight"
             />
             <TheFlavorTextViewer :flavor-text-entries="pokemonStore.pokemon.flavor_text_entries" />
             <div>
