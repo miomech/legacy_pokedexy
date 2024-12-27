@@ -59,7 +59,7 @@ function setSelectedLanguage(language) {
 <template>
     <Listbox
         as="div"
-        class="relative inline-block text-left"
+        class="relative ml-auto w-24 h-9"
     >
         <div>
             <ListboxButton
