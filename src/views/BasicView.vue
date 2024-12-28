@@ -32,6 +32,7 @@ onMounted(() => {
             <p>Loading...</p>
         </div>
         
-        <TheNavBar />
+        <!-- todo add this in later -->
+        <!-- <TheNavBar /> -->
     </section>
 </template>

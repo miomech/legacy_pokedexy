@@ -142,7 +142,7 @@ const sortedSprites = computed(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-5">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
     <div class="md:min-w-[450px]">
         <div class="relative w-full">
             <img
@@ -172,7 +172,7 @@ const sortedSprites = computed(() => {
                     @click="selectedImage = sprite"
                 >
                     <img
-                        class="shadow w-full h-full max-h-[110px]"
+                        class="shadow w-full h-full max-h-[110px] cursor-pointer"
                         :src="sprite"
                         alt="front-sprite"
                     >
