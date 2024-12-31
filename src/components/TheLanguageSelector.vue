@@ -59,7 +59,7 @@ function setSelectedLanguage(language) {
 <template>
     <Listbox
         as="div"
-        class="relative inline-block text-left"
+        class="relative z-20 lg:ml-auto w-24 h-9"
     >
         <div>
             <ListboxButton
@@ -82,7 +82,7 @@ function setSelectedLanguage(language) {
             leave-to-class="transform scale-95 opacity-0"
         >
             <ListboxOptions
-                class="absolute left-0 mt-2 w-56 origin-top-left divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+                class="absolute left-0 w-56 origin-top-left divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
             >
                 <template
                     v-for="language in languageOptions"

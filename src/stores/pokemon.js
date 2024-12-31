@@ -55,7 +55,7 @@ import { defineStore } from "pinia";
 export const usePokemonStore = defineStore("pokemon", {
     state: () => ({
         pokemon: null,
-        loading: true
+        loading: true,
     }),
 
     actions: {
@@ -87,6 +87,26 @@ export const usePokemonStore = defineStore("pokemon", {
                 ...pokemonSpeciesData
             };
             this.loading = false;
-        }
+        },
+    },
+    getters: {
+        roundHeight() {
+            let multiplier = Math.pow(10, 1 || 0);
+            return Math.round(this.convertHeightToFeet * multiplier) / multiplier;
+        },
+        roundWeight() {
+            let multiplier = Math.pow(10, 1 || 0);
+            return Math.round(this.convertWeightToPounds * multiplier) / multiplier;
+        },
+        convertHeightToFeet(state) {
+            let feet = state.pokemon.height * .328084;
+            return feet;
+        },
+        convertWeightToPounds(state) {
+            let kilograms = state.pokemon.weight / 10;
+            let pounds = kilograms * 2.2;
+            return pounds;
+
+        },
     }
 });

@@ -4,16 +4,17 @@ import { SparklesIcon } from "@heroicons/vue/24/solid";
 import TheImageVersionSelector from "@/components/ImageNavigator/TheImageVersionSelector.vue";
 import FemaleIcon from "@/components/Icons/FemaleIcon.vue";
 import MaleIcon from "@/components/Icons/MaleIcon.vue";
+import { usePokemonStore } from "@/stores/pokemon";
 
 const props = defineProps({
+  pokemon: {
+    type: Object,
+    default: null
+  },
   sprites: {
     type: Object,
     default: null
   },
-  genderRate: {
-    type: Number,
-    default: null,
-  }
 });
 
 const selectedVersion = ref(null);
@@ -24,7 +25,8 @@ onMounted(() => {
   selectedImage.value = selectedVersion.value.sprites.front_default;
 });
 
-const isGenderLess = computed(() => {return  props.genderRate === -1 });
+const pokemonStore = usePokemonStore();
+const isGenderLess = computed(() => {return  props.pokemon.gender_rate === -1 });
 const sortedSprites = computed(() => {
   return [
     {
@@ -140,7 +142,8 @@ const sortedSprites = computed(() => {
 </script>
 
 <template>
-    <div class="md:min-w-[450px] md:max-w-[450px] md:mx-auto">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div class="md:min-w-[450px]">
         <div class="relative w-full">
             <img
                 class="rounded shadow w-full max-h-[450px]"
@@ -169,7 +172,7 @@ const sortedSprites = computed(() => {
                     @click="selectedImage = sprite"
                 >
                     <img
-                        class="shadow w-full h-full max-h-[110px]"
+                        class="shadow w-full h-full max-h-[110px] cursor-pointer"
                         :src="sprite"
                         alt="front-sprite"
                     >
@@ -191,4 +194,41 @@ const sortedSprites = computed(() => {
             </template>
         </div>
     </div>
+
+    <div class="space-y-3">
+      <div class="border-2 border-slate-500 rounded-md">
+        <div class="flex gap-3 bg-red-600 text-xl pl-1 text-white">
+          <div class="flex items-center gap-1">
+            <img class="size-5" src="/public/img/pokeball.png" alt="pokeball image">
+            <div>{{ pokemon.pokedex_numbers[0].entry_number }}</div>
+          </div>
+          <div class="uppercase">{{ pokemon.name }}</div>
+        </div>
+
+        <div class="text-right pr-1">{{ pokemon.genera[7].genus }}</div>
+      </div>
+
+      <div>
+        <div>
+          <div class="flex gap-1 pb-2">
+            <div v-for="type in pokemon.types" class="px-2 border-2 border-slate-500 rounded-md uppercase">
+              {{ type.type.name }}
+            </div>
+          </div>
+
+          <div class="flex flex-col border-2 border-slate-500 rounded-md">
+            <div class="flex items-center gap-5 pl-2 border-dashed border-b border-b-red-500 ">
+              <span class="uppercase">ht</span>
+              <span>{{ pokemonStore.roundHeight }}</span>
+            </div>
+            <div class="flex items-center gap-5 pl-2">
+              <span class="uppercase">wt</span>
+              <span>{{ pokemonStore.roundWeight }} lbs.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> 
 </template>
